@@ -1,0 +1,10 @@
+{
+    "network": "mainnet",
+    "api": {
+        "wsMailboxUr": "wss://ws.wx.network/api/v1/mailbox"
+    },
+    "test": {
+        "senderAddress": "",
+        "recipientAddress": ""
+    }
+}

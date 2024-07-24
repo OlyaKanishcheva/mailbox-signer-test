@@ -1,0 +1,10 @@
+{
+    "network": "testnet",
+    "api": {
+        "wsMailboxUr": "wss://ws-testnet.wx.network/api/v1/mailbox"
+    },
+    "test": {
+        "senderAddress": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+        "recipientAddress": "3Mqtn6v9na7hgbRXbuwNCH28rAr44VxB4ih"
+    }
+}

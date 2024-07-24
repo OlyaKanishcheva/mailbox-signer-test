@@ -17,7 +17,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3002 react-scripts start",
+    "start:testnet": "REACT_APP_NETWORK=testnet npm run start",
+    "start:mainnet": "REACT_APP_NETWORK=mainnet npm run start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
