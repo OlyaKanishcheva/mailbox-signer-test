@@ -3,30 +3,24 @@ export interface ICreateMsg {
     id: number;
 }
 
-// public key
-export interface IPKMsg {
-    resp: 'pk';
-    value: string;
-}
-
-// ecrypted data message
-export interface IEncDataMsg {
-    resp: 'ecData';
-    value: string;
-}
-
-// success message
-export interface ISuccessMsg {
+// transaction send success message
+export interface ITxSuccessMsg {
     resp: 'success';
+    value: {
+        data: any; // data that was sent in wx.network
+    }
 }
 
-// error message
-export interface IErrorMsg {
-    resp: 'error';
-    value: string;
+// transaction send decline message
+export interface ITxDeclinedMsg {
+    resp: 'declined';
+    value: {
+        data: any; // data that was sent in wx.network
+        error?: any;
+    };
 }
 
-export type TMsg = IPKMsg | IEncDataMsg | ISuccessMsg | IErrorMsg | any;
+export type TMsg = ITxSuccessMsg | ITxDeclinedMsg | any;
 
 export type TSendSocketData = string | ArrayBufferLike | Blob | ArrayBufferView;
 

@@ -39,7 +39,48 @@ const transfersTestnet = {
             amount: 100000000,
         },
         meta: commonMeta,
-    }
+    },
+    '0_1_waves_with_attachment': {
+        req: 'sign',
+        data: {
+            type: 4,
+            recipient: commonTestnetRecipient,
+            amount: 10000000,
+            attachment: 'Hi',
+        },
+        meta: commonMeta,
+    },
+    'one_xtn': {
+        req: 'sign',
+        data: {
+            type: 4,
+            recipient: commonTestnetRecipient,
+            amount: 1000000,
+            assetId: '25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT',
+        },
+        meta: commonMeta,
+    },
+    '0_1_waves_custom_fee': {
+        req: 'sign',
+        data: {
+            type: 4,
+            recipient: commonTestnetRecipient,
+            amount: 10000000,
+            fee: 100000,
+            feeAssetId: '25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT',
+        },
+        meta: commonMeta,
+    },
+    '0_1_waves_not_enough_fee': {
+        req: 'sign',
+        data: {
+            type: 4,
+            recipient: commonTestnetRecipient,
+            amount: 10000000,
+            fee: 1,
+        },
+        meta: commonMeta,
+    },
 }
 
 const transfersMainnet = {};

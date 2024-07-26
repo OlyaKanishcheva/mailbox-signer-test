@@ -6,49 +6,38 @@ interface ISendTransferParams {
     mailbox: ConnectMailbox;
 }
 
-type TState = 'initial' | 'pending';
-
 const SendTransferFC: React.FC<ISendTransferParams> = ({ mailbox }) => {
-    const [state, setState] = React.useState<TState>('initial');
-    const [code, setCode] = React.useState<string>('');
+    const [error, setError] = React.useState<string>();
     const transfers = _transfers[ConfigService.getInstance().network] || _transfers.testnet;
 
-    const handleSend = React.useCallback((): void => {
+    const handleSend = React.useCallback((key = 'one_waves'): void => {
         if (mailbox.isCreated) {
-           mailbox.sendMsg(transfers['one_waves']);
+            setError('');
+            mailbox.sendMsg(transfers[key]);
         } else {
-            setState('pending');
+            setError('Connect with wx.network');
         }
     }, []);
 
-    const handleConnect = React.useCallback((): void => {
-        mailbox.connect(Number(code), {
-            onCreate: () => {
-                setState('initial');
-                handleSend();
-            }
-        });
-    }, [code, handleSend]);
-
     return (
-        <div>
-            <button onClick={handleSend}>
-                Send 1 Waves 
+        <div style={{ marginBottom: '50px' }}>
+            <button onClick={() => handleSend()}>
+                Send 1 Waves
             </button>
-            {state === 'pending' ?
-                (
-                    <div>
-                        <input
-                            value={code}
-                            onChange={(e) => setCode(e.target.value)}
-                            placeholder='Enter code from wx.network'
-                        />
-                        <button onClick={handleConnect}>
-                            Connect
-                        </button>
-                    </div>
-                ) :
-                null
+            <button onClick={() => handleSend('0_1_waves_with_attachment')}>
+                Send 0.1 Waves with attachment
+            </button>
+            <button onClick={() => handleSend('0_1_waves_custom_fee')}>
+                Send 0.1 Waves with custom fee
+            </button>
+            <button onClick={() => handleSend('one_xtn')}>
+                Send 1 XTN
+            </button>
+            <button onClick={() => handleSend('0_1_waves_not_enough_fee')}>
+                Send 0.1 Waves with not enough fee
+            </button>
+            {error &&
+                <div style={{ color: 'red' }}>{error}</div>
             }
         </div>
     )
