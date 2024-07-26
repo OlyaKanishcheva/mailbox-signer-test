@@ -5,6 +5,9 @@
     },
     "test": {
         "senderAddress": "",
-        "recipientAddress": ""
+        "recipientAddress": "",
+        "xtnAssetId": "",
+        "contract": "3PQtT2o7g8HmcZLGodx4L7YDe7ngb26wjYk",
+        "usdtAssetId": ""
     }
 }

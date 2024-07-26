@@ -8,5 +8,8 @@ export interface IConfig {
     test: {
         senderAddress: string;
         recipientAddress: string;
+        xtnAssetId: string;
+        contract: string;
+        usdtAssetId: string;
     };
 }

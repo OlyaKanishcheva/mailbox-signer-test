@@ -4,7 +4,7 @@ import mainnetConfig from '../../config/mainnet.json';
 import testnetConfig from '../../config/testnet.json';
 import { IConfig } from '../../services/config/interface';
 import { ConfigService, ConnectMailbox } from '../../services/';
-import { SendTransfer, Connect, Responses } from '../../components';
+import { SendTransfer, Connect, Responses, SendInvoke } from '../../components';
 import { TMsg } from '../../services/mailbox/interface';
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
                 onError={onResponse}
             />
             <SendTransfer mailbox={mailbox} />
+            <SendInvoke mailbox={mailbox} />
             <Responses resps={resps} />
         </div>
     );

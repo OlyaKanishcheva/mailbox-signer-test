@@ -21,6 +21,7 @@ const SendTransferFC: React.FC<ISendTransferParams> = ({ mailbox }) => {
 
     return (
         <div style={{ marginBottom: '50px' }}>
+            <h3>Transfers</h3>
             <button onClick={() => handleSend()}>
                 Send 1 Waves
             </button>

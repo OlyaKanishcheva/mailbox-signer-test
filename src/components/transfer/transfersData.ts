@@ -23,6 +23,7 @@ import testnetConfig from '../../config/testnet.json';
 
 const commonTestnetSender = testnetConfig.test?.senderAddress;
 const commonTestnetRecipient = testnetConfig.test?.recipientAddress;
+const xtnAssetId = testnetConfig.test?.xtnAssetId;
 
 const commonMeta = {
     userAddress: commonTestnetSender,
@@ -56,7 +57,7 @@ const transfersTestnet = {
             type: 4,
             recipient: commonTestnetRecipient,
             amount: 1000000,
-            assetId: '25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT',
+            assetId: xtnAssetId,
         },
         meta: commonMeta,
     },
@@ -67,7 +68,7 @@ const transfersTestnet = {
             recipient: commonTestnetRecipient,
             amount: 10000000,
             fee: 100000,
-            feeAssetId: '25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT',
+            feeAssetId: xtnAssetId,
         },
         meta: commonMeta,
     },

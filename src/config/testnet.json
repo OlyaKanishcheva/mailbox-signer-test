@@ -5,6 +5,9 @@
     },
     "test": {
         "senderAddress": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
-        "recipientAddress": "3Mqtn6v9na7hgbRXbuwNCH28rAr44VxB4ih"
+        "recipientAddress": "3Mqtn6v9na7hgbRXbuwNCH28rAr44VxB4ih",
+        "xtnAssetId": "25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT",
+        "contract": "3Mw8ZcMK47vENHqhYYhCZTCPDXhff6ZQVwt",
+        "usdtAssetId": "YYZpFWWkedkhSYsQeFkKgGQJs1w9yEy3At33rUVD1QM"
     }
 }
