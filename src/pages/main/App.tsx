@@ -8,7 +8,7 @@ import { SendTransfer, Connect, Responses, SendInvoke } from '../../components';
 import { TMsg } from '../../services/mailbox/interface';
 
 function App() {
-    const config = process.env.REACT_APP_NETWORK === 'mainnet' ? mainnetConfig : testnetConfig;
+    const config = process.env.REACT_APP_NETWORK === 'testnet' ? testnetConfig : mainnetConfig;
     const configService = new ConfigService(config as IConfig);
     const mailbox = new ConnectMailbox();
 

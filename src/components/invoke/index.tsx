@@ -8,7 +8,9 @@ interface ISendInvokeParams {
 
 const SendInvokeFC: React.FC<ISendInvokeParams> = ({ mailbox }) => {
     const [error, setError] = React.useState<string>();
-    const invokes = _invokes[ConfigService.getInstance().network] || _invokes.testnet;
+    const invokes = React.useMemo(() => {
+        return _invokes[ConfigService.getInstance().network] || _invokes.testnet;
+    }, []);
 
     const handleSend = React.useCallback((key = 'stake_one_usdt'): void => {
         if (mailbox.isCreated) {
@@ -27,6 +29,15 @@ const SendInvokeFC: React.FC<ISendInvokeParams> = ({ mailbox }) => {
             </button>
             <button onClick={() => handleSend('unstake_one_usdt')}>
                 Unstake 1 USDT
+            </button>
+            <button onClick={() => handleSend('error_stake_one_usdt')}>
+                Stake 1 USDT with error
+            </button>
+            <button onClick={() => handleSend('stake_one_usdt_with_custom_fee')}>
+                Stake 1 USDT with custom fee
+            </button>
+            <button onClick={() => handleSend('stake_one_usdt_no_meta')}>
+                Stake 1 USDT no meta
             </button>
             {error &&
                 <div style={{ color: 'red' }}>{error}</div>

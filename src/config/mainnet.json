@@ -4,10 +4,10 @@
         "wsMailboxUr": "wss://ws.wx.network/api/v1/mailbox"
     },
     "test": {
-        "senderAddress": "",
-        "recipientAddress": "",
-        "xtnAssetId": "",
+        "senderAddress": "3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fj",
+        "recipientAddress": "3P3ub4F3ehf6K3iwrzCN9jPxD4MptdDfQKx",
+        "xtnAssetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p",
         "contract": "3PQtT2o7g8HmcZLGodx4L7YDe7ngb26wjYk",
-        "usdtAssetId": ""
+        "usdtAssetId": "G5WWWzzVsWRyzGf32xojbnfp7gXbWrgqJT8RcVWEfLmC"
     }
 }

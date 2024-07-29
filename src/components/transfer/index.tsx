@@ -8,7 +8,9 @@ interface ISendTransferParams {
 
 const SendTransferFC: React.FC<ISendTransferParams> = ({ mailbox }) => {
     const [error, setError] = React.useState<string>();
-    const transfers = _transfers[ConfigService.getInstance().network] || _transfers.testnet;
+    const transfers = React.useMemo(() => {
+        return _transfers[ConfigService.getInstance().network] || _transfers.testnet;
+    }, []);
 
     const handleSend = React.useCallback((key = 'one_waves'): void => {
         if (mailbox.isCreated) {
