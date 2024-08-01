@@ -1,12 +1,12 @@
 import React from 'react';
-import { ConfigService, ConnectMailbox } from '../../services';
+import { ConfigService, MailboxWXNListener } from '../../services';
 import { cancelLease as _cancelLease } from './cancelLeaseData';
 
 interface ISendCancelLeaseParams {
-    mailbox: ConnectMailbox;
+    mailboxListener: MailboxWXNListener;
 }
 
-const SendCancelLeaseFC: React.FC<ISendCancelLeaseParams> = ({ mailbox }) => {
+const SendCancelLeaseFC: React.FC<ISendCancelLeaseParams> = ({ mailboxListener }) => {
     const [error, setError] = React.useState<string>();
     const [leaseId, setLeaseId] = React.useState<string>('');
     const cancelLease = React.useMemo(() => {
@@ -14,16 +14,16 @@ const SendCancelLeaseFC: React.FC<ISendCancelLeaseParams> = ({ mailbox }) => {
     }, []);
 
     const handleSend = React.useCallback((key = 'one_waves_cancel_lease'): void => {
-        if (mailbox.isCreated) {
+        if (mailboxListener.isReady) {
             setError('');
             const _data = cancelLease[key];
-            mailbox.sendMsg({
+            mailboxListener.sendMsg([{
                 ..._data,
                 data: {
                     ..._data.data,
                     leaseId
                 }
-            });
+            }]);
         } else {
             setError('Connect with wx.network');
         }

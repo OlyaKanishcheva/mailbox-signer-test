@@ -16,7 +16,7 @@ import testnetConfig from '../../config/testnet.json';
 // }
 
 // export interface IMailboxSignData {
-//     req: 'sign';
+//     resp: 'sign';
 //     data: IMailboxTransfer;
 //     meta?: IMailboxMeta;
 // }
@@ -36,7 +36,7 @@ const getTransfers = ({
 }) => {
     return ({
         'one_waves': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 4,
                 recipient: commonRecipient,
@@ -45,7 +45,7 @@ const getTransfers = ({
             meta: commonMeta,
         },
         '0_1_waves_with_attachment': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 4,
                 recipient: commonRecipient,
@@ -55,7 +55,7 @@ const getTransfers = ({
             meta: commonMeta,
         },
         'one_xtn': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 4,
                 recipient: commonRecipient,
@@ -65,7 +65,7 @@ const getTransfers = ({
             meta: commonMeta,
         },
         '0_1_waves_custom_fee': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 4,
                 recipient: commonRecipient,
@@ -76,7 +76,7 @@ const getTransfers = ({
             meta: commonMeta,
         },
         '0_1_waves_not_enough_fee': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 4,
                 recipient: commonRecipient,

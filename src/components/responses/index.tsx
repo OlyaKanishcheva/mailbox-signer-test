@@ -1,7 +1,7 @@
 import React from 'react';
-import { TMsg } from '../../services/mailbox/interface';
+import { TReceivedMsg } from '../../services/mailbox/interface';
 
-const ResponsesFC: React.FC<{ resps: Array<TMsg> }> = ({ resps }) => {
+const ResponsesFC: React.FC<{ resps: Array<TReceivedMsg> }> = ({ resps }) => {
     return (
         resps?.length ?
             <div style={{ border: '1px solid', wordBreak: 'break-all', padding: '8px' }}>
@@ -12,6 +12,7 @@ const ResponsesFC: React.FC<{ resps: Array<TMsg> }> = ({ resps }) => {
                                 {resp.resp}
                             </div>
                             <div style={{ marginTop: '8px' }}>
+                                {/* @ts-ignore */}
                                 {JSON.stringify(resp.value)}
                             </div>
                         </div>

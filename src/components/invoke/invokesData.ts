@@ -31,7 +31,7 @@ import testnetConfig from '../../config/testnet.json';
 // }
 
 // export interface IMailboxSignData {
-//     req: 'sign';
+//     resp: 'sign';
 //     data: IMailboxInvoke;
 //     meta?: IMailboxMeta;
 // }
@@ -52,7 +52,7 @@ const getInvokes = ({
 }) => {
     return ({
         'stake_one_usdt': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 16,
                 call: { function: 'stake', args: [] },
@@ -64,7 +64,7 @@ const getInvokes = ({
             meta: commonMeta,
         },
         'unstake_one_usdt': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 16,
                 call: {
@@ -77,7 +77,7 @@ const getInvokes = ({
             meta: commonMeta,
         },
         'error_stake_one_usdt': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 16,
                 call: { function: 'stake_error', args: [] },
@@ -89,7 +89,7 @@ const getInvokes = ({
             meta: commonMeta,
         },
         'stake_one_usdt_with_custom_fee': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 16,
                 call: { function: 'stake', args: [] },
@@ -103,7 +103,7 @@ const getInvokes = ({
             meta: commonMeta,
         },
         'stake_one_usdt_no_meta': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 16,
                 call: { function: 'stake', args: [] },

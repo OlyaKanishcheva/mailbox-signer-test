@@ -1,21 +1,21 @@
 import React from 'react';
-import { ConfigService, ConnectMailbox } from '../../services';
+import { ConfigService, MailboxWXNListener } from '../../services';
 import { transfers as _transfers } from './transfersData';
 
 interface ISendTransferParams {
-    mailbox: ConnectMailbox;
+    mailboxListener: MailboxWXNListener;
 }
 
-const SendTransferFC: React.FC<ISendTransferParams> = ({ mailbox }) => {
+const SendTransferFC: React.FC<ISendTransferParams> = ({ mailboxListener }) => {
     const [error, setError] = React.useState<string>();
     const transfers = React.useMemo(() => {
         return _transfers[ConfigService.getInstance().network] || _transfers.testnet;
     }, []);
 
     const handleSend = React.useCallback((key = 'one_waves'): void => {
-        if (mailbox.isCreated) {
+        if (mailboxListener.isReady) {
             setError('');
-            mailbox.sendMsg(transfers[key]);
+            mailboxListener.sendMsg([transfers[key]]);
         } else {
             setError('Connect with wx.network');
         }

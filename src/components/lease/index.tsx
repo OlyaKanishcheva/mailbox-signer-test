@@ -1,21 +1,21 @@
 import React from 'react';
-import { ConfigService, ConnectMailbox } from '../../services';
+import { ConfigService, MailboxWXNListener } from '../../services';
 import { lease as _lease } from './leaseData';
 
 interface ISendLeaseParams {
-    mailbox: ConnectMailbox;
+    mailboxListener: MailboxWXNListener;
 }
 
-const SendLeaseFC: React.FC<ISendLeaseParams> = ({ mailbox }) => {
+const SendLeaseFC: React.FC<ISendLeaseParams> = ({ mailboxListener }) => {
     const [error, setError] = React.useState<string>();
     const lease = React.useMemo(() => {
         return _lease[ConfigService.getInstance().network] || _lease.testnet;
     }, []);
 
     const handleSend = React.useCallback((key = 'one_waves_lease'): void => {
-        if (mailbox.isCreated) {
+        if (mailboxListener.isReady) {
             setError('');
-            mailbox.sendMsg(lease[key]);
+            mailboxListener.sendMsg([lease[key]]);
         } else {
             setError('Connect with wx.network');
         }

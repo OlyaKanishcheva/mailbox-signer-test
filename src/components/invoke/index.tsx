@@ -1,21 +1,21 @@
 import React from 'react';
-import { ConfigService, ConnectMailbox } from '../../services';
+import { ConfigService, MailboxWXNListener } from '../../services';
 import { invokes as _invokes } from './invokesData';
 
 interface ISendInvokeParams {
-    mailbox: ConnectMailbox;
+    mailboxListener: MailboxWXNListener;
 }
 
-const SendInvokeFC: React.FC<ISendInvokeParams> = ({ mailbox }) => {
+const SendInvokeFC: React.FC<ISendInvokeParams> = ({ mailboxListener }) => {
     const [error, setError] = React.useState<string>();
     const invokes = React.useMemo(() => {
         return _invokes[ConfigService.getInstance().network] || _invokes.testnet;
     }, []);
 
     const handleSend = React.useCallback((key = 'stake_one_usdt'): void => {
-        if (mailbox.isCreated) {
+        if (mailboxListener.isReady) {
             setError('');
-            mailbox.sendMsg(invokes[key]);
+            mailboxListener.sendMsg([invokes[key]]);
         } else {
             setError('Connect with wx.network');
         }

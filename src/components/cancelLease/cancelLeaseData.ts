@@ -13,7 +13,7 @@ import testnetConfig from '../../config/testnet.json';
 // }
 
 // export interface IMailboxSignData {
-//     req: 'sign';
+//     resp: 'sign';
 //     data: IMailboxCancelLease;
 //     meta?: IMailboxMeta;
 // }
@@ -31,7 +31,7 @@ const getCancelLease = ({
 }) => {
     return ({
         'one_waves_cancel_lease': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 9,
             },

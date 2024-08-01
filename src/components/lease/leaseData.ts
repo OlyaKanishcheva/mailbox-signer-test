@@ -11,12 +11,10 @@ import testnetConfig from '../../config/testnet.json';
 //     type: TRANSACTION_TYPE_NUMBER.LEASE;
 //     amount: number;
 //     recipient: string;
-//     fee?: number;
-//     feeAssetId?: string;
 // }
 
 // export interface IMailboxSignData {
-//     req: 'sign';
+//     resp: 'sign';
 //     data: IMailboxLease;
 //     meta?: IMailboxMeta;
 // }
@@ -36,7 +34,7 @@ const getLease = ({
 }) => {
     return ({
         'one_waves_lease': {
-            req: 'sign',
+            resp: 'sign',
             data: {
                 type: 8,
                 recipient: commonRecipient,
